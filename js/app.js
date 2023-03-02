@@ -38,4 +38,23 @@ document.getElementById('calculator').addEventListener('click', function(event){
         const newTypedNumber = previousTypedNumber + number;
         typedNumberField.value = newTypedNumber;
    }
+});
+
+document.getElementById('verify-pin').addEventListener('click', function(){
+    const displayPinField = document.getElementById('display-pin');
+    const currentPin = displayPinField.value;
+
+    const typedNumberField = document.getElementById('typed-numbers');
+    const typedNumber = typedNumberField.value;
+
+    const pinSuccessMessage = document.getElementById('pin-success');
+    const pinFailerMessage = document.getElementById('pin-failer');
+
+    if(typedNumber === currentPin){
+        pinSuccessMessage.style.display = 'block';
+        pinFailerMessage.style.display = 'none';
+    }else{
+        pinFailerMessage.style.display = 'block';
+        pinSuccessMessage.style.display = 'none';
+    }
 })
